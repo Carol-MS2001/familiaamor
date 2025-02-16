@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel Familiar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #9c9b9c;
+            margin: 0;
+            padding: 20px;
+        }
+        .carousel {
+            position: relative;
+            max-width: 300px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(167, 43, 43, 0.2);
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width:50%;
+            border-radius: 10px;
+        }
+        .description {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #80117a;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        .buttons button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            background-color: #007bff;
+            color: rgb(179, 30, 30);
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .buttons button:hover {
+            background-color: #4cca1a;
+        }
+    </style>
+</head>
+<body>
+    <h2>Mi Familia</h2>
+    <div class="carousel">
+        <div class="slides">
+            <div class="slide">
+                <img src="imagenes/WhatsApp Image 2025-02-12 at 5.22.41 PM (1).jpeg" alt="Hermano mayor EL KUIN">
+                <p class="description">Mi hermano, una persona increíble y fuerte.</p>
+            </div>
+            <div class="slide">
+                <img src="imagenes/WhatsApp Image 2025-02-12 at 5.22.41 PM.jpeg" alt="Mamá LA DIONI">
+                <p class="description">Mi mamá, el corazón de nuestra familia.</p>
+            </div>
+            <div class="slide">
+                <img src="Captura de pantalla 2025-02-12 173821.png" alt="Sobrinos JHULIAN Y CAPISTRANO">
+                <p class="description">Mis sobrinos, llenan de alegría y energía.</p>
+            </div>
+            <div class="slide">
+                <img src="imagenes/WhatsApp Image 2025-02-12 at 5.22.42 PM.jpeg" alt="hermana ANITA">
+                <p class="description">Mi hermana, el corazón de nuestra familia.</p>
+            </div>
+            <div class="slide">
+                <img src="imagenes/WhatsApp Image 2025-02-12 at 5.22.37 PM.jpeg" alt="Mi hija ANGELIA">
+                <p class="description">Mi HIJITA , mi mayor motivo  princesa de la la famili.</p>
+            </div>
+            <div class="slide">
+                <img src="imagenes/WhatsApp Image 2025-02-12 at 11.57.43 PM.jpeg" alt="Mi hermanita menor TEFITA">
+                <p class="description">Mi hermanita, la esperanza de y alegria .</p>
+            </div>
+          
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button onclick="prevSlide()">&#10094; Anterior</button>
+        <button onclick="nextSlide()">Siguiente &#10095;</button>
+    </div>
+
+    <script>
+        let index = 0;
+        function showSlide(i) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+            index = (i + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+        function prevSlide() {
+            showSlide(index - 1);
+        }
+        function nextSlide() {
+            showSlide(index + 1);
+        }
+    </script>
+</body>
+</html>
